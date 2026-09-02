@@ -1,0 +1,82 @@
+/* ============================================
+   IDENTIDADE VISUAL PDT - DIEGO SERAFIM
+   Cores: #100a62 | #176939 | #ffde00 | #fff4d4 | #db002c
+   Tipografia: Montserrat (fallback AmsiPro)
+   ============================================ */
+
+/* Importação da fonte Montserrat (Google Fonts) */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Cores PDT */
+  --pdt-azul: #100a62;
+  --pdt-verde: #176939;
+  --pdt-amarelo: #ffde00;
+  --pdt-amarelo-claro: #fff4d4;
+  --pdt-vermelho: #db002c;
+
+  /* Variáveis de uso */
+  --primary: var(--pdt-azul);
+  --secondary: var(--pdt-verde);
+  --accent: var(--pdt-amarelo);
+  --accent-light: var(--pdt-amarelo-claro);
+  --danger: var(--pdt-vermelho);
+  --white: #ffffff;
+  --gray: #f5f7fa;
+  --dark: #1e293b;
+  --shadow: 0 8px 30px rgba(16, 10, 98, 0.15);
+  --radius: 16px;
+  --transition: 0.3s ease;
+}
+
+body {
+  font-family: "Montserrat", "AmsiPro", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Scrollbar personalizada (com cores PDT) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--pdt-amarelo-claro);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--pdt-azul);
+  border-radius: 10px;
+}
+
+/* Animações base */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+}
