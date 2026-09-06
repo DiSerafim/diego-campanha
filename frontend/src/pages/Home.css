@@ -1,0 +1,609 @@
+/* frontend/src/pages/Home.css */
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0 40px;
+  background: radial-gradient(ellipse at 70% 30%, #0a66a9 0%, #0a0a1a 70%);
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 204, 0, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== LADO ESQUERDO ===== */
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-badge {
+  color: var(--pdt-amarelo);
+  background: rgba(255, 204, 0, 0.12);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.badge-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.85);
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+}
+
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: -1px;
+  min-height: 120px;
+}
+
+.typing-cursor {
+  display: inline-block;
+  color: var(--pdt-amarelo);
+  font-weight: 300;
+  animation: blink-cursor 0.8s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
+.hero-title .highlight {
+  color: var(--pdt-amarelo);
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 480px;
+  margin-bottom: 28px;
+}
+
+.hero-subtitle span {
+  color: var(--pdt-amarelo);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--pdt-verde);
+  color: var(--pdt-branco);
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: #009933;
+  transform: scale(1.04);
+}
+
+/* ===== ESTATÍSTICAS (NÚMEROS) ===== */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 24px;
+  margin-right: 9rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--pdt-amarelo);
+  line-height: 1;
+}
+
+.stat-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* ===== LADO DIREITO: FOTO + CONTATO ===== */
+
+.floating {
+  animation: float-img 3s ease-in-out infinite;
+}
+
+@keyframes float-img {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.hero-foto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.foto-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 20px;
+  overflow: visible;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+
+}
+
+.foto-candidato {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+}
+
+.foto-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 102, 169, 0.1) 0%,
+    rgba(10, 102, 169, 0.3) 40%,
+    rgba(10, 10, 26, 0.7) 100%
+  );
+  pointer-events: none;
+}
+
+/* Botão "FALE COMIGO" - ultrapassando 20px para baixo */
+.foto-cta {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  background: var(--pdt-amarelo);
+  color: #0a0a1a;
+  padding: 12px 20px;
+  border-radius: 50px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(255, 204, 0, 0.4);
+  z-index: 3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.foto-cta-text {
+  display: block;
+}
+
+/* ===== REDES SOCIAIS ===== */
+.foto-social {
+  margin-top: 32px;
+  width: 100%;
+  text-align: center;
+}
+
+.social-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  z-index: 9999 !important;
+}
+
+.social-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: grab;
+}
+
+.social-carousel-wrapper:active {
+  cursor: grabbing;
+}
+
+.social-carousel {
+  display: flex;
+  gap: 15px;
+  padding: 4px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.social-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.social-carousel-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  gap: 4px;
+  min-width: 50px;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
+}
+
+.social-carousel-item:hover {
+  color: var(--pdt-amarelo);
+  background: rgba(255, 204, 0, 0.08);
+  border-color: rgba(255, 204, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+.social-carousel-item .social-icon {
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.social-carousel-item:hover .social-icon {
+  color: var(--social-color, var(--pdt-amarelo));
+}
+
+.social-carousel-item .social-name {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+/* Indicadores (dots) */
+carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.indicator-dot.active {
+  background: var(--pdt-amarelo);
+  transform: scale(1.3);
+}
+
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 20px;
+}
+
+.social-icon-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  gap: 4px;
+}
+
+.social-icon-link:hover {
+  color: var(--pdt-amarelo);
+  transform: translateY(-3px);
+}
+
+.social-icon {
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-icon-link:hover .social-icon {
+  color: var(--social-color, var(--pdt-amarelo));
+}
+
+.social-name {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+/* ===== EIXOS ===== */
+.eixos-section {
+  padding: 70px 0 60px;
+  background: #0a0a1a;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--pdt-branco);
+  text-align: center;
+  margin-bottom: 48px;
+  letter-spacing: -0.5px;
+}
+
+.eixos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1024px) {
+  .hero-grid {
+    gap: 30px;
+  }
+  .hero-title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 100px 0 40px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    order: 2;
+  }
+
+  .hero-badge {
+    font-size: 12px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    min-height: 80px;
+    margin-top: 20px;
+  }
+  
+  .hero-stats {
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-right: 0;
+
+  }
+  .stat-divider {
+    display: none;
+  }
+  .stat-number {
+    font-size: 22px;
+  }
+  .stat-label {
+    font-size: 11px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .btn-primary {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+
+  .hero-foto {
+    order: 1;
+    max-width: 280px;
+  }
+
+  .foto-wrapper {
+    aspect-ratio: 3/4;
+  }
+
+  .foto-cta {
+    width: 90%;
+    padding: 10px 16px;
+    font-size: 14px;
+    bottom: -16px;
+  }
+
+  .foto-social {
+    margin-top: 28px;
+  }
+
+  .social-icons {
+    gap: 16px;
+  }
+
+  .social-icon {
+    font-size: 20px;
+  }
+
+  .social-name {
+    font-size: 9px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .eixos-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 28px;
+  }
+  .hero-subtitle {
+    font-size: 14px;
+  }
+  .hero-foto {
+    max-width: 220px;
+  }
+  .foto-cta {
+    font-size: 12px;
+    padding: 8px 14px;
+    bottom: -14px;
+  }
+  .social-icon {
+    font-size: 18px;
+  }
+  .social-name {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .social-carousel {
+    gap: 12px;
+  }
+  .social-carousel-item {
+    min-width: 65px;
+    padding: 6px 10px;
+  }
+  .social-carousel-item .social-icon {
+    font-size: 22px;
+  }
+  .social-carousel-item .social-name {
+    font-size: 9px;
+  }
+  .social-label {
+    font-size: 11px;
+  }
+  .indicator-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-carousel {
+    gap: 8px;
+  }
+  .social-carousel-item {
+    min-width: 55px;
+    padding: 4px 8px;
+  }
+  .social-carousel-item .social-icon {
+    font-size: 18px;
+  }
+  .social-carousel-item .social-name {
+    font-size: 8px;
+  }
+}
