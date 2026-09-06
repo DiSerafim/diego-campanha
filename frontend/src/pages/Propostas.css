@@ -1,0 +1,46 @@
+/* frontend/src/pages/Propostas.css */
+
+.page-propostas {
+  padding: 120px 0 60px;
+  background: #0a0a1a;
+  min-height: 80vh;
+  background: radial-gradient(ellipse at 30% 30%, #0a66a9 0%, #0a0a1a 70%);
+
+}
+
+.page-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--pdt-amarelo);
+  text-align: center;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.page-subtitle {
+  text-align: center;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+.propostas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 28px;
+  }
+  .page-subtitle {
+    font-size: 16px;
+  }
+  .propostas-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
