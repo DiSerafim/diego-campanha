@@ -1,6 +1,8 @@
+/* frontend/src/styles/globals.css */
+
 /* ============================================
    IDENTIDADE VISUAL PDT - DIEGO SERAFIM
-   Cores: #100a62 | #176939 | #ffde00 | #fff4d4 | #db002c
+   Cores: #100a62 | #176939 | #ffcc00 | #fff4d4 | #db002c
    Tipografia: Montserrat (fallback AmsiPro)
    ============================================ */
 
@@ -15,32 +17,32 @@
 }
 
 :root {
-  /* Cores PDT */
-  --pdt-azul: #100a62;
-  --pdt-verde: #176939;
-  --pdt-amarelo: #ffde00;
-  --pdt-amarelo-claro: #fff4d4;
-  --pdt-vermelho: #db002c;
+  /* Cores oficiais PDT 2026 */
+  --pdt-amarelo: #ffcc00;
+  --pdt-branco: #ffffff;
+  --pdt-azul: #0a66a9;
+  --pdt-vermelho: #dd063d;
+  --pdt-verde: #00c140;
 
   /* Variáveis de uso */
   --primary: var(--pdt-azul);
   --secondary: var(--pdt-verde);
   --accent: var(--pdt-amarelo);
-  --accent-light: var(--pdt-amarelo-claro);
   --danger: var(--pdt-vermelho);
-  --white: #ffffff;
-  --gray: #f5f7fa;
-  --dark: #1e293b;
-  --shadow: 0 8px 30px rgba(16, 10, 98, 0.15);
+  --white: var(--pdt-branco);
+  --bg-dark: #0a0a1a;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --text-light: var(--pdt-branco);
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   --radius: 16px;
   --transition: 0.3s ease;
 }
 
 body {
-  font-family: "Montserrat", "AmsiPro", -apple-system, BlinkMacSystemFont,
-    sans-serif;
-  background: var(--white);
-  color: var(--dark);
+  font-family: "Montserrat", sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -51,30 +53,38 @@ body {
   padding: 0 20px;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Scrollbar personalizada (com cores PDT) */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
+
 ::-webkit-scrollbar-track {
-  background: var(--pdt-amarelo-claro);
+  background: var(--bg-dark);
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--pdt-azul);
+  background: var(--pdt-amarelo);
   border-radius: 10px;
 }
 
-/* Animações base */
+/* Animações de entrada */
 .fade-up {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Responsividade */
+/* Responsivo */
 @media (max-width: 768px) {
   .container {
     padding: 0 16px;
