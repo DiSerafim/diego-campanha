@@ -2,7 +2,7 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
-import WhatsAppFloat from "./components/common/WhatsAppFloat";
+import Apoie from "./components/common/Apoie";
 
 // Lazy loading para carregamento rápido
 const Home = lazy(() => import("./pages/Home"));
@@ -38,7 +38,7 @@ function App() {
         </Suspense>
       </Layout>
       <AudioPlayer />
-      <WhatsAppFloat />
+      <Apoie />
     </>
   );
 }
