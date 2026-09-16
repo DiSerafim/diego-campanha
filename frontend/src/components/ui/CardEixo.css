@@ -1,0 +1,53 @@
+/* frontend/src/components/ui/CardEixo.css */
+
+.card-eixo {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(4px);
+}
+
+.card-eixo:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 204, 0, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 204, 0, 0.2);
+}
+
+.card-eixo-icon {
+  font-size: 44px;
+  margin-bottom: 14px;
+}
+
+.card-eixo-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--pdt-branco);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.card-eixo-description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 14px;
+}
+
+.card-eixo-link {
+  color: var(--pdt-amarelo);
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.card-eixo-link:hover {
+  color: var(--pdt-branco);
+}
