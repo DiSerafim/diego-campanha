@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 import molduraExemplo from "../assets/images/moldura-foto-perfil-eu-apoio.png";
 import "./Participe.css";
@@ -34,6 +33,7 @@ const Participe = () => {
   // ===== ESTADOS DE DOWNLOAD =====
   const [gerando, setGerando] = useState(false);
   const [baixando, setBaixando] = useState(false);
+  const [showDownloadModal, setShowDownloadModal] = useState(false);
 
   const [modo, setModo] = useState("ajuste"); // "crop" ou "ajuste"
 
@@ -83,7 +83,7 @@ const Participe = () => {
   };
 
   // ============================================================
-  // FUNÇÃO DE CROP – CORRIGIDA
+  // FUNÇÃO DE CROP
   // ============================================================
   const handleCropComplete = () => {
     if (!image) return;
@@ -125,7 +125,7 @@ const Participe = () => {
   };
 
   // ============================================================
-  // PRÉVIA DINÂMICA – CORRIGIDA
+  // PRÉVIA DINÂMICA
   // ============================================================
   const desenharPreview = () => {
     const canvas = previewCanvasRef.current;
@@ -262,6 +262,7 @@ const Participe = () => {
         desenharMoldura();
         setGerando(false);
         setBaixando(true);
+        setShowDownloadModal(true); // Abre o modal
       } catch (err) {
         alert("Erro ao gerar a imagem.");
         setGerando(false);
@@ -277,6 +278,7 @@ const Participe = () => {
     link.href = canvas.toDataURL("image/png");
     link.click();
     setBaixando(false);
+    setShowDownloadModal(false); // Fecha o modal
     // Reset
     setImage(null);
     setImageUrl(null);
@@ -371,7 +373,7 @@ const Participe = () => {
                 </div>
 
                 {/* Formulário */}
-                <div className="form-area">
+                {/* <div className="form-area">
                   <h3>Seus dados</h3>
                   <form>
                     <input
@@ -410,7 +412,7 @@ const Participe = () => {
                     Ao gerar a foto, você autoriza o uso dos dados para
                     acompanhamento da campanha.
                   </p>
-                </div>
+                </div> */}
 
                 <button
                   className="btn-gerar"
@@ -480,24 +482,29 @@ const Participe = () => {
                 <canvas ref={canvasRef} style={{ display: "none" }} />
 
                 {/* Área de download */}
-                {baixando && (
-                  <div className="download-area">
-                    <p>✅ Imagem pronta!</p>
-                    <button className="btn-baixar" onClick={baixarImagem}>
-                      Baixar imagem
-                    </button>
-                    <button
-                      className="btn-compartilhar"
-                      onClick={() => {
-                        const url = window.location.href;
-                        window.open(
-                          `https://wa.me/?text=Eu apoiei a campanha de Diego Serafim! Faça você também: ${url}`,
-                          "_blank"
-                        );
-                      }}
-                    >
-                      Compartilhar
-                    </button>
+                {/* ===== MODAL DE DOWNLOAD (OVERLAY GLOBAL) ===== */}
+                {showDownloadModal && (
+                  <div className="download-modal">
+                    <div className="download-modal-content">
+                      <p>✅ Imagem pronta!</p>
+                      <div className="download-modal-buttons">
+                        <button className="btn-baixar" onClick={baixarImagem}>
+                          Baixar imagem
+                        </button>
+                        <button
+                          className="btn-compartilhar"
+                          onClick={() => {
+                            const url = window.location.href;
+                            window.open(
+                              `https://wa.me/?text=Eu apoiei a campanha de Diego Serafim! Faça você também: ${url}`,
+                              "_blank"
+                            );
+                          }}
+                        >
+                          Compartilhar
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>

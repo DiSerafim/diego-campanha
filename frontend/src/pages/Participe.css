@@ -479,46 +479,103 @@
 
 @media (max-width: 768px) {
   .gerador-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 24px;
   }
 
-  .page-title {
-    font-size: 28px;
+  /* Faz os filhos do gerador-esquerdo serem itens diretos do flex */
+  .gerador-esquerdo {
+    display: contents;
   }
 
-  .upload-area {
-    min-height: 200px;
-    padding: 20px;
+  /* Reordena os blocos */
+  .upload-area-wrapper {
+    order: 1;
   }
 
-  .crop-modal-content {
-    padding: 20px;
+  .gerador-direito {
+    order: 2;
   }
 
-  .crop-modal-content h3 {
-    font-size: 20px;
+  .form-area {
+    order: 3;
   }
 
-  .download-area .btn-baixar,
-  .download-area .btn-compartilhar {
-    display: block;
-    width: 100%;
-    margin-bottom: 8px;
+  .btn-gerar {
+    order: 4;
+    margin-top: 0; /* Remove margem extra se houver */
   }
+}
 
-  .download-area .btn-baixar {
-    margin-right: 0;
-  }
+/* ===== MODAL DE DOWNLOAD ===== */
+.download-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
 
-  .crop-buttons {
-    flex-direction: column;
-  }
+.download-modal-content {
+  background: #1a1a2e;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
 
-  .btn-crop-aplicar,
-  .btn-crop-cancelar {
-    width: 100%;
-  }
+.download-modal-content p {
+  color: var(--pdt-amarelo);
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.download-modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.download-modal-buttons .btn-baixar,
+.download-modal-buttons .btn-compartilhar {
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.download-modal-buttons .btn-baixar {
+  background: var(--pdt-amarelo);
+  color: #0a0a1a;
+}
+
+.download-modal-buttons .btn-baixar:hover {
+  background: #e6c800;
+  transform: scale(1.02);
+}
+
+.download-modal-buttons .btn-compartilhar {
+  background: #25d366;
+  color: #fff;
+}
+
+.download-modal-buttons .btn-compartilhar:hover {
+  background: #1da851;
+  transform: scale(1.02);
 }
 
 @media (max-width: 480px) {
@@ -543,5 +600,16 @@
     aspect-ratio: 1/1;
     max-height: 300px;
     object-fit: cover;
+  }
+}
+
+/* ===== RESPONSIVO PARA O MODAL ===== */
+@media (max-width: 480px) {
+  .download-modal-content {
+    padding: 20px;
+  }
+
+  .download-modal-content p {
+    font-size: 18px;
   }
 }
