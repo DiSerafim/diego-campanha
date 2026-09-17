@@ -218,11 +218,17 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Diego Serafim - Deputado Estadual | PDT/PA</title>
+        <title>DiegoSerafim - DeputadoEstadual | PDT/PA</title>
         <meta
           name="description"
-          content="Diego Serafim, candidato a Deputado Estadual pelo PDT/PA. Tecnologia, transparência e coragem."
+          content="Diego Serafim, Deputado Estadual, PDT, Pará. Tecnologia, transparência e coragem."
         />
+        <meta property="og:title" content="Diego Serafim - Deputado Estadual" />
+        <meta
+          property="og:description"
+          content="Tecnologia, Transparência e Coragem para transformar o Pará."
+        />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <section className="hero">
