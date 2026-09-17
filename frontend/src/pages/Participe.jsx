@@ -309,11 +309,13 @@ const Participe = () => {
   return (
     <>
       <Helmet>
-        <title>Gerar Foto de Perfil | Diego Serafim - Deputado Estadual</title>
+        <title>Gerar Foto Perfil | Diego Serafim - Deputado Estadual</title>
         <meta
           name="description"
           content="Crie sua foto de perfil com a moldura da campanha de Diego Serafim."
         />
+        <meta property="og:title" content="Diego Serafim - Deputado Estadual" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <div className="page-gerador">

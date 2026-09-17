@@ -148,7 +148,7 @@ const Sobre = () => {
 
             {/* CARROSSEL COVERFLOW COM DESFOQUE NAS LATERAIS */}
             <div className="carrossel-container">
-              {/* <h3>Galeria de Fotos</h3>
+              <h3>Galeria de Fotos</h3>
               <div className="carrossel-coverflow">
                 {fotosCarrossel.map((foto, index) => {
                   // Calcula a distância relativa ao índice atual
@@ -193,7 +193,7 @@ const Sobre = () => {
                 })}
               </div>
 
-              Controles (opcionais) 
+              {/* Controles (opcionais)  */}
               <div className="carrossel-controles">
                 <button
                   onClick={() =>
@@ -212,7 +212,7 @@ const Sobre = () => {
                 >
                   Próximo
                 </button>
-              </div> */}
+              </div>
             </div>
           </motion.div>
         </div>
